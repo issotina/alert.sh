@@ -25,7 +25,7 @@ $ curl https://raw.githubusercontent.com/geeckmc/alert.sh/master/alert.sh | bash
 #### Gitlab CI
 
 ```yml
-    stages:
+stages:
   - build
   - deploy
   - notify
@@ -36,6 +36,5 @@ alert_job:
     - https://raw.githubusercontent.com/geeckmc/alert.sh/master/alert.sh | bash -s -- -t <token> -p AWESOME_PROJECT -s 0
   when: on_failure
 ```
------> Output
-    ![](https://raw.githubusercontent.com/geeckmc/alert.sh/master/succes_alert.png)
+![](https://raw.githubusercontent.com/geeckmc/alert.sh/master/succes_alert.png)
 
