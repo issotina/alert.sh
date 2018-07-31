@@ -10,7 +10,7 @@ Alert.sh allows you to configure an additional job in your pipeline in order to 
 Download and run script using right parameters 
 
 ```shell
-    $ ./alert.sh -p <project_name> -s <build_status: 0|1|2> -t <token> -l <your_app_link>
+$ curl https://raw.githubusercontent.com/geeckmc/alert.sh/master/alert.sh | bash -s -- -t <token> -p <project_name> -s <build_status: 0|1|2 >
 ``` 
 
 | Parameters    | Description                                                                                                        |
@@ -20,7 +20,22 @@ Download and run script using right parameters
 | -s            | Your build status (Int value).<ul> <li> 0 (Build Failed) </li>  <li>1 (Build Succes)  </li>  <li> 2 (Unknow) </li> |
 | -l            | Your Applink.                                                                                                      |
 
+## Example 
 
+#### Gitlab CI
 
+```yml
+    stages:
+  - build
+  - deploy
+  - notify
 
+alert_job:
+  stage: notify
+  script:
+    - https://raw.githubusercontent.com/geeckmc/alert.sh/master/alert.sh | bash -s -- -t <token> -p AWESOME_PROJECT -s 0
+  when: on_failure
+```
+-----> Output
+    ![](https://raw.githubusercontent.com/geeckmc/alert.sh/master/succes_alert.png)
 
