@@ -9,7 +9,7 @@ NEED_CURL=false
 # Backend server adrress
 # this server is responsible to handle http get requests and tranform
 # its to desktop notification for displaying to end users
-SERVER_ADDR="http://localhost:3000/"
+SERVER_ADDR="https://alert-sh.herokuapp.com/"
 _CMD_CURL_START="curl -s -o /dev/null -I -w \"%{http_code}\"  --request GET --url "$SERVER_ADDR
 
 if ! [ -x "$(command -v curl)" ]; then
