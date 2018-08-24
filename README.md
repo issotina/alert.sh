@@ -33,14 +33,14 @@ stages:
 alert_job_failed:
   stage: notify
   script:
-    - curl https://raw.githubusercontent.com/geeckmc/alert.sh/master/alert.sh | bash -s -- -t R1WTgDn8RWKYF2yEWLzdkA-0 -p KKIAPAY-API -s 0
+    - curl https://raw.githubusercontent.com/geeckmc/alert.sh/master/alert.sh | bash -s -- -t R1WTgDn8RWKYF2yEWLzdkA-0 -p <PROJECT_NAME> -s 0
   when: on_failure
   allow_failure: true
 
 alert_job_success:
   stage: notify
   script:
-    - curl https://raw.githubusercontent.com/geeckmc/alert.sh/master/alert.sh | bash -s -- -t R1WTgDn8RWKYF2yEWLzdkA-0 -p KKIAPAY-API -s 1
+    - curl https://raw.githubusercontent.com/geeckmc/alert.sh/master/alert.sh | bash -s -- -t R1WTgDn8RWKYF2yEWLzdkA-0 -p <PROJECT_NAME> -s 1
   when: on_success
   allow_failure: true
 ```
